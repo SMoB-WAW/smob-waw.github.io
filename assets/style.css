@@ -208,3 +208,15 @@ p { margin: 0 0 1rem; }
    }
    .opening a:hover { background: var(--ink); color: #fff; }
    .opening + .opening { margin-top: 2.5rem; }
+
+   .hero-top {
+     display: grid;
+     grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+     gap: 2rem 4rem;
+     align-items: center;
+   }
+   .hero-art { width: 100%; max-width: 440px; height: auto; justify-self: end; }
+   @media (max-width: 52rem) {
+     .hero-top { grid-template-columns: 1fr; }
+     .hero-art { justify-self: start; max-width: 360px; }
+   }
