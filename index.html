@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMoB – Single-Molecule Biophysics, IBB PAS Warsaw</title>
+  <meta name="description" content="Correlative optical tweezers and confocal fluorescence microscopy for DNA replication and protein–DNA interaction studies. Institute of Biochemistry and Biophysics PAS, Warsaw.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="wordmark" href="#top">SMoB</a>
+  <nav aria-label="Main">
+    <a href="#instrument">Instrument</a>
+    <a href="#research">Research</a>
+    <a href="#access">Access</a>
+    <a href="#team">Team</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <h1>We watch single proteins work on single DNA&nbsp;molecules.</h1>
+    <p class="lede">
+      SMoB, the Single-Molecule Biophysics facility at the Institute of Biochemistry and Biophysics PAS in Warsaw, runs a correlative optical tweezers
+      and confocal fluorescence microscope (C-Trap). We use it to study DNA replication
+      and protein–DNA interactions, and we run measurements for collaborators.
+    </p>
+
+    <figure class="kymo">
+      <div class="kymo-frame">
+        <span class="bead bead-top" aria-hidden="true"></span>
+        <canvas id="kymo" width="1200" height="260"
+          aria-label="Kymograph: a green replisome trace moves along DNA, pauses at a stationary magenta roadblock, then continues after the roadblock dissociates."></canvas>
+        <span class="bead bead-bottom" aria-hidden="true"></span>
+      </div>
+      <figcaption>
+        <span class="axis">Time →</span>
+        Simulated kymograph. A replisome (green) travels along a DNA tether held between
+        two trapped beads, stalls at a protein roadblock (magenta) and resumes once it dissociates.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section id="instrument">
+    <h2>The instrument</h2>
+    <p>
+      A single DNA molecule is held between two optically trapped beads. We control its
+      tension, move it between laminar-flow channels containing different proteins, and
+      image what binds to it with confocal scanning, while recording force at the same time.
+    </p>
+    <dl class="specs">
+      <dt>Optical traps</dt>
+      <dd>[Dual trap], force resolution [~0.1&nbsp;pN], tether lengths up to [~20&nbsp;µm]</dd>
+      <dt>Fluorescence</dt>
+      <dd>Confocal scanning with [488, 532 and 638&nbsp;nm] excitation; kymographs and 2D scans</dd>
+      <dt>Microfluidics</dt>
+      <dd>[5]-channel laminar flow cell for buffer exchange and stepwise protein loading</dd>
+      <dt>Measurements</dt>
+      <dd>Force–extension curves, binding kinetics, diffusion, translocation velocity, pausing and bypass of roadblocks</dd>
+      <dt>Analysis</dt>
+      <dd>[Pylake / in-house Python pipelines] for trace extraction and kinetic fitting</dd>
+    </dl>
+  </section>
+
+  <section id="research">
+    <h2>Research</h2>
+    <div class="topics">
+      <article>
+        <h3>Replisomes at barriers</h3>
+        <p>
+          How a replisome encounters nucleosomes and tightly bound proteins: whether it
+          stalls, displaces the barrier or bypasses it, and which factors decide the outcome.
+        </p>
+      </article>
+      <article>
+        <h3>Protein–DNA interactions</h3>
+        <p>
+          Binding, one-dimensional diffusion and compaction of DNA by single-stranded and
+          double-stranded DNA-binding proteins, measured with force and fluorescence together.
+        </p>
+      </article>
+      <article>
+        <h3>[Third topic]</h3>
+        <p>[One or two sentences describing the question and what the measurement adds.]</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="access">
+    <h2>Working with us</h2>
+    <p>
+      We collaborate with groups who need single-molecule measurements but do not have the
+      instrument. Most projects follow the same path.
+    </p>
+    <ol class="steps">
+      <li><strong>Write to us</strong> with the biological question and the proteins involved.</li>
+      <li><strong>Feasibility.</strong> We discuss labelling, DNA constructs and the amount of purified protein needed.</li>
+      <li><strong>Pilot session.</strong> One or two days on the instrument to establish conditions.</li>
+      <li><strong>Measurements and analysis</strong>, carried out jointly, with data shared in full.</li>
+    </ol>
+  </section>
+
+  <section id="team">
+    <h2>Team</h2>
+    <ul class="people">
+      <li><span class="name">Artur [Surname]</span><span class="role">[Head of the facility]</span></li>
+      <li><span class="name">[Name Surname]</span><span class="role">[Postdoctoral researcher]</span></li>
+      <li><span class="name">[Name Surname]</span><span class="role">[PhD student]</span></li>
+    </ul>
+    <p class="note">Open positions are announced here. [Currently: none.]</p>
+  </section>
+
+  <section id="publications">
+    <h2>Selected publications</h2>
+    <ol class="pubs">
+      <li>[Authors]. [Title]. <em>[Journal]</em> [Year]. <a href="#">doi:[…]</a></li>
+      <li>[Authors]. [Title]. <em>[Journal]</em> [Year]. <a href="#">doi:[…]</a></li>
+      <li>[Authors]. [Title]. <em>[Journal]</em> [Year]. <a href="#">doi:[…]</a></li>
+    </ol>
+  </section>
+
+</main>
+
+<footer id="contact" class="site-footer">
+  <div>
+    <h2>Contact</h2>
+    <p><a href="mailto:[email]">[email]</a></p>
+    <p>Institute of Biochemistry and Biophysics PAS<br>Pawińskiego 5a<br>02-106 Warsaw, Poland</p>
+  </div>
+  <div>
+    <p>Funded by [NCN / NAWA / …].</p>
+    <p class="small">© <span id="year">2026</span> SMoB, IBB PAS</p>
+  </div>
+</footer>
+
+<script src="assets/kymo.js"></script>
+</body>
+</html>

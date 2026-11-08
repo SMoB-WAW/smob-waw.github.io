@@ -1,0 +1,188 @@
+:root {
+  --paper: #f3f5f7;
+  --ink: #17202b;
+  --muted: #586473;
+  --rule: #d3d9e0;
+  --green: #17864a;     /* 488 nm channel, text-safe */
+  --magenta: #b52f76;   /* 638 nm channel */
+  --kymo-bg: #04060a;
+  --measure: 68ch;
+  --font: "Schibsted Grotesk", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--green); text-underline-offset: 0.18em; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 3px solid var(--magenta); outline-offset: 3px; border-radius: 2px; }
+
+/* Header */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+}
+.wordmark {
+  font-weight: 800;
+  font-size: 1.125rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+.site-header nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; }
+.site-header nav a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.975rem; }
+.site-header nav a:hover { color: var(--ink); }
+
+/* Layout */
+main > section {
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5.5rem) clamp(1.25rem, 4vw, 3rem) 0;
+}
+main > section > p, .specs, .steps, .people, .pubs, .note { max-width: var(--measure); }
+
+h1, h2, h3 { line-height: 1.1; letter-spacing: -0.02em; margin: 0; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; margin-bottom: 1.25rem; }
+h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; }
+p { margin: 0 0 1rem; }
+
+/* Hero */
+.hero { padding-top: clamp(2rem, 6vw, 4.5rem) !important; }
+.hero h1 {
+  font-size: clamp(2.4rem, 6.4vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.0;
+  max-width: 16ch;
+  margin-bottom: 1.5rem;
+}
+.lede { font-size: 1.2rem; color: var(--muted); max-width: 58ch !important; }
+
+.kymo { margin: clamp(2rem, 5vw, 3.5rem) 0 0; }
+.kymo-frame {
+  position: relative;
+  background: var(--kymo-bg);
+  border-radius: 6px;
+  padding: 22px 0;
+  overflow: hidden;
+}
+.kymo canvas {
+  display: block;
+  width: 100%;
+  height: clamp(150px, 22vw, 260px);
+  image-rendering: pixelated;
+}
+/* Trapped beads that hold the tether: the kymograph's y-axis is position between them */
+.bead {
+  position: absolute;
+  left: 50%;
+  width: 34px; height: 34px;
+  margin-left: -17px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #e9eef4, #8d99a8 60%, #4a5462);
+  opacity: 0.9;
+}
+.bead-top { top: -17px; }
+.bead-bottom { bottom: -17px; }
+.kymo figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.925rem;
+  color: var(--muted);
+  max-width: var(--measure);
+}
+.kymo .axis { color: var(--ink); font-weight: 500; margin-right: 0.75rem; }
+
+/* Instrument */
+.specs {
+  display: grid;
+  grid-template-columns: minmax(8rem, 12rem) 1fr;
+  margin: 2rem 0 0;
+  border-top: 1px solid var(--rule);
+}
+.specs dt, .specs dd { padding: 0.85rem 0; border-bottom: 1px solid var(--rule); margin: 0; }
+.specs dt { font-weight: 700; padding-right: 1.5rem; }
+
+/* Research */
+.topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem 3rem;
+  margin-top: 0.5rem;
+}
+.topics article { border-left: 3px solid var(--green); padding-left: 1.1rem; }
+.topics article:nth-child(2) { border-color: var(--magenta); }
+.topics article:nth-child(3) { border-color: var(--rule); }
+.topics p { color: var(--muted); }
+
+/* Access: a real sequence, so numbered */
+.steps { list-style: none; counter-reset: step; padding: 0; margin: 1.5rem 0 0; }
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 0 0 1.1rem 2.75rem;
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 0.05rem;
+  width: 1.8rem; height: 1.8rem;
+  border-radius: 50%;
+  border: 2px solid var(--green);
+  color: var(--green);
+  font-weight: 700; font-size: 0.9rem;
+  display: grid; place-items: center;
+}
+.steps li:not(:last-child)::after {
+  content: "";
+  position: absolute; left: calc(0.9rem - 1px); top: 2rem; bottom: 0.15rem;
+  border-left: 2px solid var(--rule);
+}
+
+/* Team */
+.people { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+.people li {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 1rem;
+  padding: 0.85rem 0; border-bottom: 1px solid var(--rule);
+}
+.people li:first-child { border-top: 1px solid var(--rule); }
+.people .name { font-weight: 700; }
+.people .role { color: var(--muted); }
+.note { color: var(--muted); font-size: 0.95rem; }
+
+/* Publications */
+.pubs { padding-left: 1.5rem; margin: 0; }
+.pubs li { padding: 0.4rem 0 0.4rem 0.4rem; }
+.pubs li::marker { color: var(--muted); }
+
+/* Footer */
+.site-footer {
+  max-width: 76rem;
+  margin: clamp(4rem, 9vw, 7rem) auto 0;
+  padding: 2.5rem clamp(1.25rem, 4vw, 3rem) 3rem;
+  border-top: 2px solid var(--ink);
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;
+}
+.site-footer h2 { font-size: 1.25rem; margin-bottom: 0.75rem; }
+.site-footer p { color: var(--muted); }
+.small { font-size: 0.875rem; }
+
+@media (max-width: 40rem) {
+  .specs { grid-template-columns: 1fr; }
+  .specs dt { border-bottom: 0; padding-bottom: 0; }
+  .specs dd { padding-top: 0.2rem; }
+}
